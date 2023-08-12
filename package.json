@@ -2,9 +2,10 @@
   "name": "frisk-sdk",
   "version": "1.0.0",
   "description": "SDK for Frisk Protocol",
-  "main": "index.js",
+  "main": "dist/frisk.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/FriskProtocol/frisk-sdk/issues"
   },
-  "homepage": "https://github.com/FriskProtocol/frisk-sdk#readme"
+  "homepage": "https://github.com/FriskProtocol/frisk-sdk#readme",
+  "devDependencies": {
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.9.0"
+  }
 }
