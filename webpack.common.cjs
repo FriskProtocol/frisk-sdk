@@ -14,14 +14,23 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
+  experiments: {
+    outputModule: true,
+  },
+  mode: "none",
+  optimization: {
+    concatenateModules: true,
+  },
   output: {
     filename: "frisk.js",
     path: path.resolve(__dirname, "dist"),
-    globalObject: "this",
-    library: {
-      name: "frisk",
-      type: "umd",
-    },
+    chunkFormat: "module",
     clean: true,
+    iife: false,
+    library: {
+      type: "module",
+    },
+    module: true,
   },
+  target: "node",
 };

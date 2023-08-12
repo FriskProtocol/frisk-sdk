@@ -4,8 +4,15 @@
   "description": "SDK for Frisk Protocol",
   "main": "dist/frisk.js",
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "test": "npx ts-node --esm --transpile-only test/*.ts",
+    "start": "webpack --config webpack.dev.cjs",
+    "build": "webpack --config webpack.prod.cjs"
+  },
+  "type": "module",
+  "engines": { "node": ">=12.22.7" },
+  "exports": {
+    ".": "./dist/frisk.js",
+    "./package.json": "./package.json"
   },
   "repository": {
     "type": "git",
@@ -22,10 +29,18 @@
   },
   "homepage": "https://github.com/FriskProtocol/frisk-sdk#readme",
   "devDependencies": {
+    "@types/concat-stream": "^2.0.0",
+    "@types/tape": "^5.6.0",
+    "concat-stream": "^2.0.0",
+    "esm": "^3.2.25",
+    "tape": "^5.6.6",
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-merge": "^5.9.0"
+  },
+  "dependencies": {
+    "goertzel": "^3.0.1"
   }
 }
